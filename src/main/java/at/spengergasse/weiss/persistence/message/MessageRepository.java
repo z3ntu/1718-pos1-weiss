@@ -6,6 +6,6 @@ import org.springframework.data.querydsl.QueryDslPredicateExecutor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MessageRepository extends JpaRepository<Message, Long>, QueryDslPredicateExecutor<Message> {
+public interface MessageRepository extends JpaRepository<Message, Long>, QueryDslPredicateExecutor<Message>, MessageRepositoryCustom {
 
 }

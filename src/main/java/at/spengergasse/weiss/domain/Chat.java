@@ -5,9 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -17,19 +16,21 @@ import javax.persistence.Table;
 public class Chat extends BaseDomain<Chat, Long> {
 
     @NonNull
-    @Column(name= "chatId")
-    private Integer chatId;
-
-    @NonNull
-    @Column(name = "user1")
+    @ManyToOne
+    @JoinColumn(name = "user1")
     private User user1;
 
     @NonNull
-    @Column(name = "user2")
+    @ManyToOne
+    @JoinColumn(name = "user2")
     private User user2;
+
+    @NonNull
+    @Column(name = "datetime")
+    private LocalDateTime createdAt;
 
     @Override
     public int compareTo(Chat chat) {
-        return chatId.compareTo(chat.getChatId());
+        return getId().compareTo(chat.getId());
     }
 }
