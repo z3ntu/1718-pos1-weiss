@@ -24,7 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 @Slf4j
 @Transactional
-public class UserRepositoryTest {
+public class ChatRepositoryTest {
 
     @Autowired
     private UserRepository userRepository;

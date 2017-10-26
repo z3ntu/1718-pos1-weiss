@@ -1,4 +1,4 @@
-package at.spengergasse.weiss.persistence;
+package at.spengergasse.weiss.persistence.message;
 
 import at.spengergasse.weiss.domain.Message;
 import org.springframework.data.jpa.repository.JpaRepository;

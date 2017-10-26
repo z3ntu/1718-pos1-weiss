@@ -1,7 +1,6 @@
-package at.spengergasse.weiss.persistence;
+package at.spengergasse.weiss.persistence.user;
 
-import at.spengergasse.weiss.domain.Chat;
-import at.spengergasse.weiss.domain.QChat;
+import at.spengergasse.weiss.domain.QUser;
 import at.spengergasse.weiss.domain.User;
 import org.springframework.data.jpa.repository.support.QueryDslRepositorySupport;
 
@@ -18,8 +17,8 @@ public class UserRepositoryImpl extends QueryDslRepositorySupport implements Use
     }
 
     @Override
-    public List<Chat> getChatsByUser(User user) {
-        QChat chat = QChat.chat;
-        return from(chat).where(ChatPredicates.chatIsWithUser(user)).fetch();
+    public List<User> getUsersWhoseUsernamesStartWith(String startsWith) {
+        QUser user = QUser.user;
+        return from(user).where(UserPredicates.usernameStartsWith(startsWith)).fetch();
     }
 }

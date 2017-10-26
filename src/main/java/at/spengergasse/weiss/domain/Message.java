@@ -5,9 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -17,19 +16,21 @@ import javax.persistence.Table;
 public class Message extends BaseDomain<Message, Long> {
 
     @NonNull
-    @Column(name = "msgid")
-    private Long msgid;
-
-    @NonNull
-    @Column(name= "sender")
+    @ManyToOne
+    @JoinColumn(name = "sender")
     private User sender;
 
     @NonNull
-    @Column(name= "chat")
+    @ManyToOne
+    @JoinColumn(name = "chat")
     private Chat chat;
+
+    @NonNull
+    @Column(name = "sentAt")
+    private LocalDateTime sentAt;
 
     @Override
     public int compareTo(Message message) {
-        return msgid.compareTo(message.getMsgid());
+        return getId().compareTo(message.getId());
     }
 }

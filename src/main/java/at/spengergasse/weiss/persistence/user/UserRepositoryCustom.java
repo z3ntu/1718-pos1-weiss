@@ -1,6 +1,5 @@
-package at.spengergasse.weiss.persistence;
+package at.spengergasse.weiss.persistence.user;
 
-import at.spengergasse.weiss.domain.Chat;
 import at.spengergasse.weiss.domain.User;
 
 import java.util.List;
@@ -10,5 +9,5 @@ import java.util.List;
  * https://github.com/z3ntu
  */
 public interface UserRepositoryCustom {
-    public List<Chat> getChatsByUser(User user);
+    public List<User> getUsersWhoseUsernamesStartWith(String startsWith);
 }

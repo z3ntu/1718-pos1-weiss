@@ -1,4 +1,4 @@
-package at.spengergasse.weiss.persistence;
+package at.spengergasse.weiss.persistence.chat;
 
 import at.spengergasse.weiss.domain.Chat;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -6,6 +6,6 @@ import org.springframework.data.querydsl.QueryDslPredicateExecutor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ChatRepository extends JpaRepository<Chat, Long>, QueryDslPredicateExecutor<Chat> {
+public interface ChatRepository extends JpaRepository<Chat, Long>, QueryDslPredicateExecutor<Chat>, ChatRepositoryCustom {
 
 }

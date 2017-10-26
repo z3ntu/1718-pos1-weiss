@@ -1,4 +1,4 @@
-package at.spengergasse.weiss.persistence;
+package at.spengergasse.weiss.persistence.chat;
 
 import at.spengergasse.weiss.domain.QChat;
 import at.spengergasse.weiss.domain.User;
