@@ -28,8 +28,16 @@ public class ChatRepositoryTest {
     private ChatRepository chatRepository;
 
     @Test
-    public void testAddChat() {
-        //TODO
+    public void testGetChatById() {
+        User user1 = new User("Xorok", "Adrian Tiefenbrunner");
+        User user2 = new User("z3ntu", "Luca Weiss");
+        userRepository.addUser(user1);
+        userRepository.addUser(user2);
+
+        Chat chat1 = new Chat(user1, user2, DateTime.now());
+        chatRepository.addChat(chat1);
+
+        assertThat(chatRepository.getChatById(chat1.getId())).isEqualTo(chat1);
     }
 
     @Test

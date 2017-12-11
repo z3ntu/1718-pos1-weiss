@@ -9,7 +9,7 @@ import java.util.List;
  * https://github.com/z3ntu
  */
 public interface MessageRepository {
-    public void addMessage(Message message);
+    void addMessage(Message message);
 
-    public List<Message> getMessagesInChat();
+    List<Message> getMessagesInChat();
 }

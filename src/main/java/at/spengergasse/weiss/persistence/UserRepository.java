@@ -7,9 +7,9 @@ import at.spengergasse.weiss.domain.User;
  * https://github.com/z3ntu
  */
 public interface UserRepository {
-    public void addUser(User user);
+    void addUser(User user);
 
-    public User getUserById(Long id);
+    User getUserById(Long id);
 
-    public User getUserByUsername(String username);
+    User getUserByUsername(String username);
 }

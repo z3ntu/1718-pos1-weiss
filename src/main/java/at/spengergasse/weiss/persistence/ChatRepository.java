@@ -10,7 +10,8 @@ import java.util.List;
  * https://github.com/z3ntu
  */
 public interface ChatRepository {
-    public void addChat(Chat chat);
+    void addChat(Chat chat);
 
-    public List<Chat> getChatsByUser(User user);
+    List<Chat> getChatsByUser(User user);
+    Chat getChatById(Long id);
 }

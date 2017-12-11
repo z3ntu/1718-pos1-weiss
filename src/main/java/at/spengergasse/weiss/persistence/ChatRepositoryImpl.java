@@ -51,4 +51,18 @@ public class ChatRepositoryImpl implements ChatRepository {
                     .executeAndFetch(Chat.class);
         }
     }
+
+    @Override
+    public Chat getChatById(Long id) {
+        final String sql =
+                "SELECT chat.id, user1, user2, createdAt " +
+                        "FROM chat " +
+                        "WHERE id=:id";
+
+        try (Connection con = sql2o.open()) {
+            return con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Chat.class);
+        }
+    }
 }
