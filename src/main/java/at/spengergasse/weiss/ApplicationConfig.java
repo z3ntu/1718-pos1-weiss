@@ -1,6 +1,8 @@
 package at.spengergasse.weiss;
 
+import at.spengergasse.weiss.converters.ChatConverter;
 import at.spengergasse.weiss.converters.UserConverter;
+import at.spengergasse.weiss.domain.Chat;
 import at.spengergasse.weiss.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -38,9 +40,10 @@ public class ApplicationConfig {
     }
 
     @Bean
-    public Sql2o getSql2o(UserConverter userConverter) {
+    public Sql2o getSql2o(UserConverter userConverter, ChatConverter chatConverter) {
         final Map<Class, Converter> mappers = new HashMap<>();
         mappers.put(User.class, userConverter);
+        mappers.put(Chat.class, chatConverter);
         return new Sql2o(dataSource(),
                 new NoQuirks(mappers));
     }

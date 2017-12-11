@@ -38,6 +38,20 @@ public class ChatRepositoryImpl implements ChatRepository {
     }
 
     @Override
+    public Chat getChatById(Long id) {
+        final String sql =
+                "SELECT chat.id, user1, user2, createdAt " +
+                        "FROM chat " +
+                        "WHERE id=:id";
+
+        try (Connection con = sql2o.open()) {
+            return con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Chat.class);
+        }
+    }
+
+    @Override
     public List<Chat> getChatsByUser(User user) {
         final String sql =
                 "SELECT chat.id, user1, user2, createdAt " +
@@ -49,20 +63,6 @@ public class ChatRepositoryImpl implements ChatRepository {
             return con.createQuery(sql)
                     .addParameter("user", user.getId())
                     .executeAndFetch(Chat.class);
-        }
-    }
-
-    @Override
-    public Chat getChatById(Long id) {
-        final String sql =
-                "SELECT chat.id, user1, user2, createdAt " +
-                        "FROM chat " +
-                        "WHERE id=:id";
-
-        try (Connection con = sql2o.open()) {
-            return con.createQuery(sql)
-                    .addParameter("id", id)
-                    .executeAndFetchFirst(Chat.class);
         }
     }
 }

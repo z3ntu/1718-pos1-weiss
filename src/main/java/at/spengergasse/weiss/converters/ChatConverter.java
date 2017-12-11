@@ -1,7 +1,7 @@
 package at.spengergasse.weiss.converters;
 
-import at.spengergasse.weiss.domain.User;
-import at.spengergasse.weiss.persistence.UserRepository;
+import at.spengergasse.weiss.domain.Chat;
+import at.spengergasse.weiss.persistence.ChatRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
@@ -13,24 +13,24 @@ import org.sql2o.converters.ConverterException;
  * https://github.com/z3ntu
  */
 @Component
-public class UserConverter implements Converter<User> {
+public class ChatConverter implements Converter<Chat> {
 
     @Autowired
     @Lazy
-    private UserRepository userRepository;
+    private ChatRepository chatRepository;
 
     @Override
-    public User convert(Object val) throws ConverterException {
+    public Chat convert(Object val) throws ConverterException {
         if (val instanceof Number) {
-            Long userId = ((Number) val).longValue();
-            return userRepository.getUserById(userId);
+            Long chatId = ((Number) val).longValue();
+            return chatRepository.getChatById(chatId);
         } else {
             return null;
         }
     }
 
     @Override
-    public Object toDatabaseParam(User val) {
+    public Object toDatabaseParam(Chat val) {
         if (val == null) {
             return null;
         } else {

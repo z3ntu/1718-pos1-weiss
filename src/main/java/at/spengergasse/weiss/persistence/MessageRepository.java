@@ -1,5 +1,6 @@
 package at.spengergasse.weiss.persistence;
 
+import at.spengergasse.weiss.domain.Chat;
 import at.spengergasse.weiss.domain.Message;
 
 import java.util.List;
@@ -11,5 +12,7 @@ import java.util.List;
 public interface MessageRepository {
     void addMessage(Message message);
 
-    List<Message> getMessagesInChat();
+    Message getMessageById(Long id);
+
+    List<Message> getMessagesInChat(Chat chat);
 }

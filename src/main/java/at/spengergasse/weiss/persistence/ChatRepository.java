@@ -12,6 +12,7 @@ import java.util.List;
 public interface ChatRepository {
     void addChat(Chat chat);
 
-    List<Chat> getChatsByUser(User user);
     Chat getChatById(Long id);
+
+    List<Chat> getChatsByUser(User user);
 }

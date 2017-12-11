@@ -20,5 +20,8 @@ public class Message {
     private Chat chat;
 
     @NonNull
+    private String content;
+
+    @NonNull
     private DateTime sentAt;
 }
