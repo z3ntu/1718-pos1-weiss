@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class PosHandInsApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(PosHandInsApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(PosHandInsApplication.class, args);
+    }
 }

@@ -36,11 +36,11 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public User getUserById(Long id) {
         String sql =
-            "SELECT id, username, realname " +
-            "FROM user " +
-            "WHERE id=:id";
+                "SELECT id, username, realname " +
+                        "FROM user " +
+                        "WHERE id=:id";
 
-        try(Connection con = sql2o.open()) {
+        try (Connection con = sql2o.open()) {
             return con.createQuery(sql)
                     .addParameter("id", id)
                     .executeAndFetchFirst(User.class);
@@ -50,11 +50,11 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public User getUserByUsername(String username) {
         String sql =
-            "SELECT id, username, realname " +
-            "FROM user " +
-            "WHERE username=:username";
+                "SELECT id, username, realname " +
+                        "FROM user " +
+                        "WHERE username=:username";
 
-        try(Connection con = sql2o.open()) {
+        try (Connection con = sql2o.open()) {
             return con.createQuery(sql)
                     .addParameter("username", username)
                     .executeAndFetchFirst(User.class);
