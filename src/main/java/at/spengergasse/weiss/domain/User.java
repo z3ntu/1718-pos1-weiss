@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class User {
 
+    private Long id;
+
     @NonNull
     private String username;
 
