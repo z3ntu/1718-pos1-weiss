@@ -1,4 +1,4 @@
-package at.spengergasse.weiss.services.web;
+package at.spengergasse.weiss.temperature;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 import lombok.AllArgsConstructor;
@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonRootName("Temperature")
 public class Temperature {
-    private Long temperature;
+    private double temperature;
 }

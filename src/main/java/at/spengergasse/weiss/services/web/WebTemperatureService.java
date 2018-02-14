@@ -1,11 +1,12 @@
 package at.spengergasse.weiss.services.web;
 
+import at.spengergasse.weiss.temperature.Temperature;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import javax.annotation.PostConstruct;
 import java.util.logging.Logger;
 
 @Service
@@ -24,17 +25,13 @@ public class WebTemperatureService {
                 : "http://" + serviceUrl;
     }
 
-    // TODO remove this
-    @PostConstruct
-    public void demoOnly() {
-        // Can't do this in the constructor because the RestTemplate injection
-        // happens afterwards.
-        logger.warning("The RestTemplate request factory is "
-                + restTemplate.getRequestFactory().getClass());
-    }
-
+    @HystrixCommand(fallbackMethod = "fallbackMethod")
     public Temperature getCurrentTemperature() {
         logger.info("getCurrentTemperature() invoked");
         return restTemplate.getForObject(serviceUrl + "/temperature/current", Temperature.class);
+    }
+
+    public Temperature fallbackMethod() {
+        return new Temperature(0);
     }
 }
