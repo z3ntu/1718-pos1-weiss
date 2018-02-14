@@ -1,5 +1,6 @@
 package at.spengergasse.weiss.services.web;
 
+import at.spengergasse.weiss.temperature.Temperature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,16 +11,15 @@ import java.util.logging.Logger;
 
 @Controller
 public class WebTemperatureController {
-    @Autowired
-    protected WebTemperatureService temperatureService;
+
+    protected WebTemperatureService webTemperatureService;
 
     protected Logger logger = Logger.getLogger(WebTemperatureController.class.getName());
 
-
-    public WebTemperatureController(WebTemperatureService temperatureService) {
-        this.temperatureService = temperatureService;
+    @Autowired
+    public WebTemperatureController(WebTemperatureService webTemperatureService) {
+        this.webTemperatureService = webTemperatureService;
     }
-
 
     @RequestMapping("/temperature")
     @ResponseBody
@@ -30,8 +30,6 @@ public class WebTemperatureController {
     @RequestMapping(value = "/temperature/current", method = RequestMethod.GET)
     @ResponseBody
     public Temperature getCurrent() {
-        logger.info(temperatureService.getCurrentTemperature().toString());
-//        return new Temperature(1L);
-        return temperatureService.getCurrentTemperature();
+        return webTemperatureService.getCurrentTemperature();
     }
 }
