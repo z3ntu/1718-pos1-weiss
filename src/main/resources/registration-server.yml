@@ -8,3 +8,5 @@ eureka:
 
 server:
   port: 1111   # HTTP (Tomcat) port
+
+spring.boot.admin.context-path: /sba
