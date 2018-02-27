@@ -1,12 +1,13 @@
 package at.spengergasse.weiss.services.registration;
 
+import de.codecentric.boot.admin.config.EnableAdminServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 @SpringBootApplication
 @EnableEurekaServer
-//@EnableAdminServer
+@EnableAdminServer
 public class RegistrationServer {
     public static void main(String[] args) {
         // Tell server to look for registration-server.properties or registration-server.yml
