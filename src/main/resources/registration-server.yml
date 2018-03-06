@@ -10,3 +10,5 @@ server:
   port: 1111   # HTTP (Tomcat) port
 
 spring.boot.admin.context-path: /sba
+
+logging.level.de.codecentric.boot.admin.client: DEBUG

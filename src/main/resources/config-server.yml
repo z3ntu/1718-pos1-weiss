@@ -1,7 +1,7 @@
 # Spring properties
-spring:
-  application:
-    name: web-service  # Identify this application
+spring.cloud.config.server.git.uri: ${HOME}/Desktop/handin03-config
+
+spring.application.name: config-service
 
 # Discovery Server Access
 #  1. DEV ONLY: Reduce the lease renewal interval to speed up registration
@@ -15,4 +15,4 @@ eureka:
 
 # HTTP Server
 server:
-  port: 3333 # HTTP (Tomcat) port
+  port: 8888   # HTTP (Tomcat) port
