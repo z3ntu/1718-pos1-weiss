@@ -1,14 +1,13 @@
 package at.spengergasse.weiss.services.temperature;
 
-import at.spengergasse.weiss.temperature.TemperatureConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@Import(TemperatureConfiguration.class)
+@ComponentScan("at.spengergasse.weiss.temperature")
 public class TemperatureServer {
     public static void main(String[] args) {
         // Tell server to look for temperature-server.properties or temperature-server.yml
