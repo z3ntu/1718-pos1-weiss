@@ -1,18 +1,7 @@
 # Spring properties
 spring:
   application:
-     name: temperature-service  # Service registers under this name
-#  cloud:
-#    config:
-#      uri: http://localhost:4444
-
-#      discovery:
-#        enabled: true
-#        serviceId: config-service
-
-# HTTP Server
-server:
-  port: 2222   # HTTP (Tomcat) port
+    name: web-service  # Identify this application
 
 # Discovery Server Access
 #  1. DEV ONLY: Reduce the lease renewal interval to speed up registration
@@ -24,8 +13,6 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:1111/eureka/
 
-message: lol
-
-#logging:
-#  level:
-#    org.springframework.web: DEBUG
+# HTTP Server
+server:
+  port: 3333 # HTTP (Tomcat) port
