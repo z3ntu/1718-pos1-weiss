@@ -1,4 +1,4 @@
-package at.spengergasse.weiss.services.registration;
+package at.spengergasse.s_w.services.registration;
 
 import de.codecentric.boot.admin.config.EnableAdminServer;
 import org.springframework.boot.SpringApplication;

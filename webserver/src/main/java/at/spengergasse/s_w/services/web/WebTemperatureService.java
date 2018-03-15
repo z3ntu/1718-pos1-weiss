@@ -1,4 +1,4 @@
-package at.spengergasse.weiss.services.web;
+package at.spengergasse.s_w.services.web;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package at.spengergasse.weiss.services.web;
+package at.spengergasse.s_w.services.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

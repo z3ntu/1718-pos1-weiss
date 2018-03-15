@@ -1,4 +1,4 @@
-package at.spengergasse.weiss.services.temperature;
+package at.spengergasse.s_w.services.temperature;
 
 public interface TemperatureService {
     double getCurrentTemperature();
