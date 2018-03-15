@@ -1,0 +1,36 @@
+version: '3'
+services:
+  config:
+    build:
+        context: configserver/
+    volumes:
+        # Spring Cloud Config Repository
+        - "config-repo:/config:ro"
+    ports:
+        - "8888:8888"
+  registration:
+    build:
+        context: registrationserver/
+    depends_on:
+        - config
+    ports:
+        - "1111:1111"
+  temperature:
+    build:
+        context: temperatureserver/
+    depends_on:
+        - registration
+    ports:
+        - "2222:2222"
+  web:
+    build:
+        context: webserver/
+    depends_on:
+        - registration
+    ports:
+        - "3333:3333"
+
+volumes:
+    config-repo:
+
+# TODO network connections and exposing ports
