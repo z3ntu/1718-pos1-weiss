@@ -1,0 +1,5 @@
+include 'temperatureserver'
+include 'registrationserver'
+include 'configserver'
+include 'webserver'
+

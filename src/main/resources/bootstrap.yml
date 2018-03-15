@@ -1,5 +1,0 @@
-spring.cloud.config.uri: http://localhost:8888
-security.basic.enabled: false
-management.security.enabled: false
-spring.security.enabled: false
-spring.cloud.config.enabled: true
