@@ -1,4 +1,4 @@
-package at.spengergasse.weiss.services.web;
+package at.spengergasse.s_w.services.web;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package at.spengergasse.weiss.services.config;
+package at.spengergasse.s_w.services.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

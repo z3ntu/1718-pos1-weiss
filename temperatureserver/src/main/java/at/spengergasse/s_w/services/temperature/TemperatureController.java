@@ -1,4 +1,4 @@
-package at.spengergasse.weiss.services.temperature;
+package at.spengergasse.s_w.services.temperature;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
