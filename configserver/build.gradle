@@ -11,8 +11,10 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
+apply plugin: 'application'
 apply plugin: 'org.springframework.boot'
+
+mainClassName = "at.spengergasse.s_w.services.config.ConfigServer"
 
 group = 'at.spengergasse'
 version = '0.0.1-SNAPSHOT'
