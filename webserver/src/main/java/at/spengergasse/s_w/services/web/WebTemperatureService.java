@@ -27,10 +27,12 @@ public class WebTemperatureService {
     @HystrixCommand(fallbackMethod = "fallbackMethod")
     public Temperature getCurrentTemperature() {
         logger.info("getCurrentTemperature() invoked");
-        return restTemplate.getForObject(serviceUrl + "/temperature/current", Temperature.class);
+        Temperature temp = restTemplate.getForObject(serviceUrl + "/temperature/current", Temperature.class);
+        temp.setSuccess(true);
+        return temp;
     }
 
     public Temperature fallbackMethod() {
-        return new Temperature(0);
+        return new Temperature(0, false);
     }
 }

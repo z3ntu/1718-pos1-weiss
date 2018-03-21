@@ -40,9 +40,4 @@ public class WebServer {
     public WebTemperatureController temperatureController() {
         return new WebTemperatureController(temperatureService());
     }
-
-    @Bean
-    public HomeController homeController() {
-        return new HomeController();
-    }
 }

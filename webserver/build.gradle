@@ -32,11 +32,14 @@ ext {
 
 dependencies {
     runtime('org.springframework.boot:spring-boot-devtools')
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.springframework.cloud:spring-cloud-config-client')
     compile('org.springframework.cloud:spring-cloud-starter-hystrix')
     compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
+    compile('org.webjars:bootstrap:4.0.0-2')
     compileOnly('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+
 }
 
 dependencyManagement {

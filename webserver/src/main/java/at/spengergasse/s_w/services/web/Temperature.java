@@ -11,4 +11,5 @@ import lombok.NoArgsConstructor;
 @JsonRootName("Temperature")
 public class Temperature {
     private double temperature;
+    private boolean success;
 }

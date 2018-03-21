@@ -1,12 +1,13 @@
 package at.spengergasse.s_w.services.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
 import java.util.logging.Logger;
 
-@RestController
+@Controller
 public class WebTemperatureController {
 
     protected WebTemperatureService webTemperatureService;
@@ -18,13 +19,12 @@ public class WebTemperatureController {
         this.webTemperatureService = webTemperatureService;
     }
 
-    @RequestMapping("/temperature")
-    public String goHome() {
-        return "temperature call";
-    }
+    @RequestMapping("/")
+    public String home(Map<String, Object> model) {
+        Temperature temperature = webTemperatureService.getCurrentTemperature();
 
-    @RequestMapping(value = "/temperature/current")
-    public Temperature getCurrent() {
-        return webTemperatureService.getCurrentTemperature();
+        model.put("temperature", temperature.getTemperature());
+        model.put("success", temperature.isSuccess());
+        return "temperature";
     }
 }

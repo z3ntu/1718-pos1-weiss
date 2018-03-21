@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Microservices Weiss Sperlich</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="webjars/bootstrap/4.0.0-2/css/bootstrap.min.css"/>
+</head>
+<body>
+
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">Microservices</a>
+    <div id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div style="margin: 30px;">
+    <h1>Microservices Example</h1>
+    <small>By Luca Weiss &amp; Raphael Sperlich</small>
+    <div class="alert alert-warning" role="alert" th:unless="${success}">
+        Temperature service is unavailable. Please try again later.
+    </div>
+    <div>
+        <b>Current temperature:</b>
+        <span th:text="${temperature} + '&deg;C'" th:if="${success}"></span>
+        <span th:unless="${success}">error</span>
+    </div>
+</div>
+<script type="text/javascript"
+        src="webjars/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript"
+        src="webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+</body>
+</html>
